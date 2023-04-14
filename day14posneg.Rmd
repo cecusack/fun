@@ -16,6 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 **images from wikipedia:**    
 - https://en.wikipedia.org/wiki/Midnights   
 - https://en.wikipedia.org/wiki/Red_(Taylor_Swift_album)
+- I adjusted the opacity in Illustrator for both images to 50%
 
 ```{r warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -71,7 +72,6 @@ baseplot <-
   pivot_longer(cols = valence:energy,
                names_to = "var") %>% 
   ggplot(aes(x=value, y=danceability, color=album_name)) +
-  # background_image(midnts)+
   geom_smooth(method = "lm", fullrange=TRUE, se=FALSE, linewidth=4)+
   scale_color_manual(values = c("#4e4466", "#8b1912"))+
   facet_grid(cols = vars(var)) +
